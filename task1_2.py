@@ -2,7 +2,7 @@ from scapy.all import sr1
 from scapy.layers.inet import IP, ICMP
 
 def ping(dst: str, ttl=255):
-    a = IP(dst=dst, src='10.0.0.62', ttl=ttl)
+    a = IP(dst=dst, ttl=ttl)
     b = ICMP()
     p = a/b/b' '
     return sr1(p, timeout=10)
